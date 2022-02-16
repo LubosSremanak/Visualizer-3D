@@ -1,0 +1,103 @@
+$scrollbar-color-thumb: var(--light-accent-color-opacity-11);
+$scrollbar-color-track: var(--dark-background-color);
+
+.full-dimension {
+  width: 100%;
+  height: 100%;
+}
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.row-gap {
+  row-gap: 10px;
+}
+
+.column-gap {
+  column-gap: 15px;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+}
+
+.flex-jc-center {
+  justify-content: center;
+}
+
+.flex-ai-center {
+  align-items: center;
+}
+
+.flex-jc-start {
+  justify-content: flex-start;
+}
+
+.flex-ai-start {
+  align-items: flex-start;
+}
+
+.flex-jc-end {
+  justify-content: flex-end;
+}
+
+.flex-ai-end {
+  align-items: flex-end;
+}
+
+.box-shadow-transition {
+  transition: box-shadow 0.25s ease-in, background-color 0.25s ease-in;
+}
+
+.rounded {
+  border-radius: 20px;
+}
+
+.bg-blur-5px {
+  backdrop-filter: blur(5px);
+}
+
+
+a,
+a:hover,
+a:focus,
+a:active {
+  text-decoration: none;
+  color: inherit;
+}
+
+::-webkit-scrollbar {
+  -webkit-appearance: none;
+}
+
+::-webkit-scrollbar:vertical {
+  width: 11px;
+}
+
+::-webkit-scrollbar:horizontal {
+  height: 11px;
+}
+
+::-webkit-scrollbar-thumb {
+  border-radius: 8px;
+  border: 2px solid $scrollbar-color-thumb;
+  background-color: $scrollbar-color-thumb;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $scrollbar-color-track;
+  border-radius: 8px;
+}
+
+button, input[type="submit"], input[type="reset"] {
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font: inherit;
+  cursor: pointer;
+  outline: inherit;
+}

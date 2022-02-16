@@ -1,1 +1,67 @@
-/* You can add global styles to this file, and also import other style files */
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background-color: black;
+  font-family: Roboto, sans-serif;
+}
+
+.plate {
+  width: 80px;
+  height: 80px;
+  font-weight: bold;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.88) 10%, rgba(0, 0, 0, 0.94) 25%, rgba(255, 0, 0, 0.94) 70%);
+  border: #2a2a2a solid 2px;
+  transition: box-shadow 250ms ease;
+  box-shadow: 0 0 10px white;
+  padding:2px;
+  position: relative;
+}
+.plate-animation{
+  animation: rotate1 5s infinite linear;
+}
+.plate:after{
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: black;
+  font-size: 15px;
+  font-weight: bold;
+  transform: translateX(-50%) translateY(-50%);
+  border-radius: 10px;
+}
+.plate-l:after{
+  content: 'L'!important;
+}
+
+.plate-r:after{
+  content: 'S' !important;
+}
+
+
+
+@keyframes rotate1 {
+  from{
+    transform: rotate(0);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}
+.switch {
+  border: red solid 2px;
+  width: 25px !important;
+  height: 25px !important;
+  border-radius: 2px;
+  padding-left: 0.065em;
+  transition: box-shadow 250ms ease;
+}
+
+.plate:hover,.switch:hover {
+  box-shadow: 0 0 10px red;
+  transition: box-shadow 250ms ease;
+}

@@ -1,0 +1,306 @@
+#canvas-3D {
+  perspective: 900px;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.8);
+
+  .menu {
+    top: 75%;
+    z-index: 2;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 300px;
+    padding: 40px 50px;
+    transform-style: preserve-3d;
+    border-radius: 20px;
+    color: white;
+    box-shadow: 0 0 20px red;
+  }
+
+  #dance-floor {
+    position: relative;
+    transform-style: preserve-3d;
+    width: 65%;
+    height: 80%;
+    background: url("../../../assets/board.svg") center center;
+    background-size: contain;
+    transform: rotateX(-110deg);
+    border-radius: 20px;
+
+    :is(#speaker-left, #speaker-right) {
+      position: absolute;
+      background-color: black;
+      height: 500px;
+      width: 150px;
+      z-index: 0;
+      transform-style: preserve-3d;
+      border-radius: 20px;
+      box-shadow: 0 0 10px white;
+
+      .circle-top {
+        position: absolute;
+        bottom: 10%;
+        transform: translateX(-50%);
+        left: 50%;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+      }
+
+      .circle-bottom {
+        position: absolute;
+        bottom: 40%;
+        transform: translateX(-50%);
+        left: 50%;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+      }
+
+    }
+
+    #speaker-left {
+      top: 100%;
+      left: 0;
+      transform: rotateX(280deg) translateX(-50%) translateY(0px) translateZ(-10px);
+    }
+
+    #speaker-right {
+      top: 100%;
+      right: 0;
+      transform: rotateX(280deg) translateX(50%) translateY(0px) translateZ(-10px);
+    }
+
+    #equalizer {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background-color: black;
+      height: 500px;
+      width: calc(100% - 150px);
+      transform: rotateX(280deg) translateX(75px) translateY(80px);
+      transform-style: preserve-3d;
+      border-radius: 20px;
+      box-shadow: 0 0 10px white;
+      .bar {
+        background-color: red;
+
+        border-radius: 20px;
+        transition: height 500ms linear, background-color 500ms linear;
+      }
+    }
+
+    :is(#monkey,#morty,#bottle,#lama,#cavo) {
+      position: absolute;
+      transform: rotateX(100deg) translateX(-50%);
+      transform-style: preserve-3d;
+    }
+
+    #monkey {
+      top: 50%;
+      left: 10%;
+    }
+
+    #morty {
+      top: 25%;
+      left: 50%;
+    }
+
+    #lama {
+      top: 80%;
+      left: 26%;
+    }
+
+    #cavo {
+      top: 80%;
+      left: 85%;
+    }
+  }
+
+  #disco-ball {
+    height: 120px;
+    width: 120px;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    animation: rotate linear 10s infinite;
+    transform-style: preserve-3d;
+    transform: translateX(-50%);
+    border-radius: 100%;
+
+    .circle {
+      position: absolute;
+      clip-path: circle(100%);
+      width: 100%;
+      height: 100%;
+      border-radius: 100%;
+      background: url('../../../assets/texture.png') center center;
+      background-size: cover;
+
+      /* X Axis */
+      &:nth-child(1) {
+        transform: rotate3d(1, 0, 0, 0deg);
+      }
+
+      &:nth-child(2) {
+        transform: rotate3d(1, 0, 0, 36deg);
+      }
+
+      &:nth-child(3) {
+        transform: rotate3d(1, 0, 0, 72deg);
+      }
+
+      &:nth-child(4) {
+        transform: rotate3d(1, 0, 0, 108deg);
+      }
+
+      &:nth-child(5) {
+        transform: rotate3d(1, 0, 0, 144deg);
+      }
+
+      /* Y Axis */
+      &:nth-child(6) {
+        transform: rotate3d(0, 1, 0, 0deg);
+      }
+
+      &:nth-child(7) {
+        transform: rotate3d(0, 1, 0, 36deg);
+      }
+
+      &:nth-child(8) {
+        transform: rotate3d(0, 1, 0, 72deg);
+      }
+
+      &:nth-child(9) {
+        transform: rotate3d(0, 1, 0, 108deg);
+      }
+
+      &:nth-child(10) {
+        transform: rotate3d(0, 1, 0, 144deg);
+      }
+
+      /* Z Axis */
+      &:nth-child(11) {
+        transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 0deg);
+      }
+
+      &:nth-child(12) {
+        transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 36deg);
+      }
+
+      &:nth-child(13) {
+        transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 72deg);
+      }
+
+      &:nth-child(14) {
+        transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 108deg);
+      }
+
+      &:nth-child(15) {
+        transform: rotate3d(0, 1, 0, 90deg) rotate3d(1, 0, 0, 144deg);
+      }
+
+    }
+
+  }
+
+
+}
+
+
+@keyframes deep {
+  from {
+    transform: translateZ(500px);
+  }
+  to {
+    transform: translateZ(-1000px);
+  }
+}
+
+
+@keyframes rotate {
+  from {
+
+    transform: translateX(-50%) rotateY(0deg);
+  }
+
+  to {
+    transform: translateX(-50%) rotateY(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  #canvas-3D {
+
+    .menu {
+      width: fit-content;
+      height: fit-content;
+      padding: 10px;
+      .plate{
+        width: 60px;
+        height: 60px;
+      }
+    }
+    #dance-floor {
+      margin-top: 40px;
+      transform: rotateX(-110deg);
+      width: 80%;
+      height: 80%;
+
+      :is(#monkey,#morty,#bottle,#lama,#cavo) {
+        position: absolute;
+        transform: rotateX(100deg) translateX(-50%) translateY(-50px) translateZ(300px);
+        transform-style: preserve-3d;
+      }
+
+      #monkey {
+        left: 23%;
+      }
+
+      #cavo {
+        left: 80%;
+      }
+
+      :is(#speaker-left, #speaker-right) {
+        width: 50px;
+        height: 50%;
+
+        .circle-top {
+          bottom: 25%;
+          width: 25px;
+          height: 25px;
+        }
+
+        .circle-bottom {
+          bottom: 45%;
+          width: 25px;
+          height: 25px;
+        }
+      }
+
+      #equalizer {
+        width: calc(100% - 50px);
+        transform: rotateX(280deg) translateX(25px) translateY(80px);
+        height: 60%;
+
+        .bar {
+
+        }
+      }
+    }
+
+    #disco-ball {
+      width: 70px !important;
+      height: 70px !important;
+    }
+  }
+
+}
+
+@media only screen and (max-width: 940px) {
+  #disco-ball {
+    width: 100px !important;
+    height: 100px !important;
+  }
+}

@@ -1,0 +1,69 @@
+<audio #song src="assets/songs/song1.mp3"></audio>
+<div class="flex-column flex-jc-center flex-ai-center" id="canvas-3D">
+  <div class="menu ">
+    <div class="flex-row column-gap flex-jc-center">
+      <div class="flex-column flex-ai-center row-gap ">
+        <button class="plate plate-l" [class.plate-animation]="!this.song.paused" (click)="previousSong()"></button>
+        <fa-icon [icon]="faLeft"></fa-icon>
+      </div>
+      <div class="flex-row column-gap ">
+        <div class="flex-column flex-ai-center row-gap ">
+          <button class="switch" (click)="startParty()">
+            <fa-icon [icon]="faPlay"></fa-icon>
+          </button>
+          <button class="switch stop" (click)="stopParty()">
+            <fa-icon [icon]="faStop"></fa-icon>
+          </button>
+        </div>
+        <div class="flex-column flex-ai-center row-gap ">
+
+          <button class="switch stop" (click)="pauseParty()">
+            <fa-icon [icon]="faPause"></fa-icon>
+          </button>
+          <button (click)="music.click()" class="switch">
+            <fa-icon [icon]="faUpload"></fa-icon>
+          </button>
+          <input #music hidden   (change)="uploadMusic($event)" type="file" id="upload">
+        </div>
+      </div>
+      <div class="flex-column flex-ai-center row-gap ">
+        <button class="plate plate-r" [class.plate-animation]="!this.song.paused" (click)="nextSong()"></button>
+        <fa-icon [icon]="faRight"></fa-icon>
+      </div>
+    </div>
+
+    <div class="flex-row flex-jc-center ">
+      <span>{{this.actualSong}}/{{this.songs}}</span>
+    </div>
+  </div>
+
+  <div [ngStyle]="danceFloorColor()" class="flex-row flex-jc-center" id="dance-floor">
+    <div class="flex-row flex-jc-center" id="equalizer">
+      <div *ngFor="let value of this.songVibe" [ngStyle]="barStyle(value)" class="bar"></div>
+    </div>
+    <div id="speaker-right">
+      <div [ngStyle]="randomGradient()" class="circle-top"></div>
+      <div [ngStyle]="randomGradient()" class="circle-bottom"></div>
+    </div>
+    <div id="speaker-left">
+      <div [ngStyle]="randomGradient()" class="circle-top"></div>
+      <div [ngStyle]="randomGradient()" class="circle-bottom"></div>
+    </div>
+    <app-lottie (isLoaded)="init($event)" [autoPlay]="true" [height]="height" [loop]="true"
+                [lottieId]="'monkey'"
+                [path]="'../assets/animations/monkey.json'"
+                [width]="width" class="animation lottie-accent" id="monkey"></app-lottie>
+    <app-lottie (isLoaded)="init($event)" [autoPlay]="true" [height]="height" [loop]="true" [lottieId]="'morty'"
+                [path]="'../assets/animations/morty.json'"
+                [width]="width"
+                class="animation lottie-accent" id="morty"></app-lottie>
+    <app-lottie (isLoaded)="init($event)" [autoPlay]="true" [height]="height" [loop]="true" [lottieId]="'cavo'"
+                [path]="'../assets/animations/cavo.json'"
+                [width]="width"
+                class="animation lottie-accent" id="cavo"></app-lottie>
+  </div>
+  <div id="disco-ball">
+    <div *ngFor="let circle of [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14]" class="circle"></div>
+  </div>
+
+</div>
